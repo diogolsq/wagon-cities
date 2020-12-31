@@ -40,12 +40,19 @@ class CityList extends Component {
 render() {
     return (
       <div className="city-list col-sm-7">
-        {this.props.cities.map((city, index) => {
-          return <City key={city.slug} city={city} tabIndex={index} address={city.address}/>;
+        {this.props.cities.map((city) => {
+          return <City key={city.slug} city={city} />;
         })}
       </div>
     );
   }
 }
 
-export default CityList;
+
+function mapStateToProps(state) {
+  return {
+    cities: state.cities
+  };
+}
+
+export default connect(mapStateToProps)(CityList);
