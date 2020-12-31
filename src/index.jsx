@@ -10,14 +10,18 @@ import '../assets/stylesheets/application.scss';
 
 // State and reducers
 
-// import citiesReducer from "./reducers/cities_reducer";
-// import selectedCityReducer from "./reducers/selected_city_reducer";
+import citiesReducer from "./reducers/cities_reducer";
+import selectedCityReducer from "./reducers/selected_city_reducer";
 
 const reducers = combineReducers({
-  // cities: citiesReducer,
-  // selectedCity: selectedCityReducer
+  cities: citiesReducer,
+  selectedCity: selectedCityReducer
 });
 
 // render an instance of the component in the DOM
 ReactDOM.render(
-    <App />,document.getElementById('root'));
+  <Provider store={createStore(reducers)}>
+    <App />
+  </Provider>,
+  document.querySelector('.container')
+);
