@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div className="app">
       <CityList />
-      <City />
+      <ActiveCity />
     </div>
   );
 };
